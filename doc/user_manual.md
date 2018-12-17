@@ -1,5 +1,5 @@
-USER MANUAL
-Eclipse Education
+<h1>USER MANUAL
+Eclipse Education</h1>
 
 The webpage, Eclipse Education, serves the purpose of informing our target
 audience about eclipses. Our target audience consists of kids between both
