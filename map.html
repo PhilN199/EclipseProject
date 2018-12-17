@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <title>Fake Love</title>
+</head>
+
+<body>
+        <nav role="navigation">
+            <div id="menuToggle">
+               
+                <input type="checkbox" />
+        
+              
+                <span></span>
+                <span></span>
+                <span></span>
+        
+               
+                <ul id="menu">
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="info.html">
+                        <li>About Elipse</li>
+                    </a>
+                    <a href="index2.html" target="index2.html">
+                        <li>When is the next eclipse?</li>
+                    </a>
+                    <a href="map.html" target="map.html">
+                        <li>Map</li>
+                    </a>
+                    <a href="count.html" target="count.html">
+                        <li>Countdown</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+<div class="w3-container">
+
+    <img src="banner.jpg" alt="" style="padding:inherit; width:104%; margin-left:-2%">
+
+
+</div>
+
+</br>
+</br>
+
+
+
+<center>
+
+
+    Latitude: <input type="text" name="lat" id="lat" />
+    Longitude: <input type="text" name="lng" id="lng" />
+    <input type="button" onclick="zoomTo()" value="Esketit" class="w3-button w3-round-xxlarge"/>
+    <br />
+    </br>
+    <br />
+    </br><br />
+
+
+
+    <div id="mapid" style="height: 500px"></div>
+
+</center>
+
+
+    
+
+    <script>
+        var map = L.map('mapid').setView([51.505, -0.09], 13);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        function zoomTo() {
+            var lat = document.getElementById("lat").value;
+            var lng = document.getElementById("lng").value;
+      
+
+
+            var my_icon = L.icon({
+                iconUrl: 'cat.png',
+                
+
+                iconSize: [84, 77], 
+             
+                iconAnchor: [22, 94], 
+            
+                popupAnchor: [-3, -76] 
+            });
+
+
+            var zoom = 10;
+            var marker = L.marker([lat, lng], {icon: my_icon}).addTo(map);
+            map.setView([lat, lng], zoom);
+            
+
+
+
+
+
+
+
+        
+        }   
+    </script>
+</body>
+
+</html>

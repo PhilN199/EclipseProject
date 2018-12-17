@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		
+		<title>Fake Love</title>
+		
+		<style type="text/css">
+		body {
+			background: black;
+			background-color: black;
+		}
+
+		.countdownContainer{
+			position: absolute;;
+			top: 50%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			text-align: center;
+			background: black;
+			border: 1px solid #999;
+			padding: 5px;
+			box-shadow: 0 0 5px 3px #ccc;
+		}
+
+		.info {
+			font-size: 100px;
+		}
+		</style>
+	</head>
+	<body>
+
+
+<nav role="navigation">
+	<div id="menuToggle">
+
+		<input type="checkbox" />
+
+	
+		<span></span>
+		<span></span>
+		<span></span>
+
+
+		<ul id="menu">
+			<a href="index.html">
+				<li>Home</li>
+			</a>
+			<a href="info.html">
+				<li>About Elipse</li>
+			</a>
+			<a href="index2.html" target="index2.html">
+				<li>When is the next eclipse?</li>
+			</a>
+			<a href="map.html" target="map.html">
+				<li>Map</li>
+			</a>
+			<a href="count.html" target="count.html">
+				<li>Countdown</li>
+			</a>
+		</ul>
+	</div>
+</nav>
+
+
+		<table class="countdownContainer" style="width:60%">
+			<tr class="info">
+				<td colspan="4">Next Eclipse In</td>
+			</tr>
+			<tr class="info">
+				<td id="days">120</td>
+				<td id="hours">4</td>
+				<td id="minutes">12</td>
+				<td id="seconds">22</td>
+			</tr>
+			<tr>
+				<td>Days</td>
+				<td>Hours</td>
+				<td>Minutes</td>
+				<td>Seconds</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+
+			function countdown(){
+				var now = new Date();
+				var eventDate = new Date(2019, 11, 11);
+
+				var currentTiime = now.getTime();
+				var eventTime = eventDate.getTime();
+
+				var remTime = eventTime - currentTiime;
+
+				var s = Math.floor(remTime / 1000);
+				var m = Math.floor(s / 60);
+				var h = Math.floor(m / 60);
+				var d = Math.floor(h / 24);
+
+				h %= 24;
+				m %= 60;
+				s %= 60;
+
+				h = (h < 10) ? "0" + h : h;
+				m = (m < 10) ? "0" + m : m;
+				s = (s < 10) ? "0" + s : s;
+
+				document.getElementById("days").textContent = d;
+				document.getElementById("days").innerText = d;
+
+				document.getElementById("hours").textContent = h;
+				document.getElementById("minutes").textContent = m;
+				document.getElementById("seconds").textContent = s;
+
+				setTimeout(countdown, 1000);
+			}
+
+			countdown();
+		</script>
+	</body>
+</html>

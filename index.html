@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <title>Fake Love</title>
+</head>
+
+<body>
+
+    <nav role="navigation">
+        <div id="menuToggle">
+           
+            <input type="checkbox" />
+
+          
+            <span></span>
+            <span></span>
+            <span></span>
+
+            
+            <ul id="menu" style="color:black">
+                <a href="index.html">
+                    <li>Home</li>
+                </a>
+                <a href="info.html">
+                    <li>About Elipse</li>
+                </a>
+                <a href="index2.html" target="index2.html">
+                    <li>When is the next eclipse?</li>
+                </a>
+                <a href="map.html" target="map.html">
+                    <li>Map</li>
+                </a>
+                <a href="count.html" target="count.html">
+                    <li>Countdown</li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <center>
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+
+                <img src="img1.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="img2.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="img3.jpg" style="width:100%">
+
+            </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </center>
+    <div class="w3-container" style="padding:0px 16px" id="team">
+        <h3 class="w3-center">THE TEAM</h3>
+        <h1 class="w3-center">WE ARE DONAL</h1>
+        <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card">
+                    <img src="team3.jpg" alt="John" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Donal Heidenblad</h3>
+                        <p class="w3-opacity">Project Manager</p>
+                        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque
+                            elementum.</p>
+                        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card">
+                    <img src="team3.jpg" alt="Jane" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Donal Heidenblad</h3>
+                        <p class="w3-opacity">Programmer</p>
+                        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque
+                            elementum.</p>
+                        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card">
+                    <img src="team3.jpg" alt="Mike" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Donal Heidenblad</h3>
+                        <p class="w3-opacity">Mysql admin</p>
+                        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque
+                            elementum.</p>
+                        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card">
+                    <img src="team3.jpg" alt="Dan" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Donal Heidenblad</h3>
+                        <p class="w3-opacity">Designer</p>
+                        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque
+                            elementum.</p>
+                        <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 10000); 
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

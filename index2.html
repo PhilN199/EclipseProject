@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="angular.min.js"></script>
+        <title>Fake Love</title>
+
+    </head>
+    <body ng-app='myapp'>
+
+        <nav role="navigation">
+            <div id="menuToggle">
+               
+                <input type="checkbox" />
+        
+                
+                <span></span>
+                <span></span>
+                <span></span>
+        
+               
+                <ul id="menu">
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="info.html">
+                        <li>About Elipse</li>
+                    </a>
+                    <a href="index2.html" target="index2.html">
+                        <li>Next Eclipse?</li>
+                    </a>
+                    <a href="map.html" target="map.html">
+                        <li>Map</li>
+                    </a>
+                    <a href="count.html" target="count.html">
+                        <li>Countdown</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+        <div class="w3-container">
+        
+            <img src="banner.jpg" alt="" style="padding:inherit; width:104%; margin-left:-2%">
+        
+        
+        </div>
+
+<center>
+        <div ng-controller="fetchCtrl">
+            <br>
+            <br>
+ 
+            <input type='text' ng-keyup='fetchfake_love()' ng-model='searchText' placeholder='Date(2019-12-11)'><br><br>
+
+
+            <table border='1'>
+               <tr >
+                    <th ng-click='sortColumn("date")' >Date</th>
+                    <th ng-click='sortColumn("time")' >Time</th>
+                    <th ng-click='sortColumn("latitude")'>Latitude</th>
+                    <th ng-click='sortColumn("longitude")' >Longitude</th>
+                    
+                    
+               </tr>
+               <tr ng-repeat='fake_love in fake_love|orderBy:column:reverse'>
+                    <td width='20%' align='center'>{{fake_love.date}}</td>
+                    <td width='35%' align='center'>{{fake_love.time}}</td>
+
+                    <td width='25%' align='center'>{{fake_love.latitude}}</td>
+                    <td width='20%' align='center'>{{fake_love.longitude}}</td>
+                    
+               
+               </tr>
+            </table>
+ 
+        </div>
+</center>
+    
+        <script>
+        var fetch = angular.module('myapp', []);
+
+        fetch.controller('fetchCtrl', ['$scope', '$http', function ($scope, $http) {
+            
+
+            $scope.column = 'date';
+
+            $scope.reverse = false; 
+
+
+            $scope.sortColumn = function(col){
+                $scope.column = col;
+                if($scope.reverse){
+                    $scope.reverse = false;
+                   
+                }else{
+                    $scope.reverse = true; 
+                }
+                $scope.fetchfake_love();
+            };
+
+
+            $scope.fetchfake_love = function(){
+                
+                var searchText = $scope.searchText;
+                if(searchText == undefined){
+                    searchText = '';
+                }
+
+                $http({
+                method: 'post',
+                url: 'getData.php',
+                data: {searchText:searchText,sortColumn:$scope.column,sortOrder:$scope.reverse,request: 2}
+                }).then(function successCallback(response) {
+                    $scope.fake_love = response.data;
+                });
+            }
+
+            $scope.fetchfake_love();
+        }]);
+
+        </script>
+        
+    </body>
+
+</html>
+
+
+
+        
